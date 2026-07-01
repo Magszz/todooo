@@ -1,0 +1,45 @@
+@reference "@/index.css";
+
+.register-container {
+  @apply w-full;
+}
+
+.register-container__header {
+  @apply font-mono mb-12;
+
+  h3 {
+    @apply text-3xl font-bold;
+  }
+
+  span {
+    @apply text-sm;
+  }
+}
+
+.register-container__form-container {
+  @apply font-mono;
+
+  input {
+    @apply text-xs;
+  }
+}
+
+.register-container__form-footer {
+  @apply w-full py-2;
+
+  button {
+    @apply w-full cursor-pointer mb-3;
+  }
+
+  p {
+    @apply text-xs text-center;
+  }
+
+  span {
+    @apply text-blue-500 cursor-pointer;
+
+    &:hover {
+      @apply underline;
+    }
+  }
+}

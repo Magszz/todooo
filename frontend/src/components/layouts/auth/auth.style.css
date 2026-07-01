@@ -1,0 +1,21 @@
+@reference "@/index.css";
+
+.auth-container {
+  @apply w-full min-h-screen;
+}
+
+.auth-container__nav {
+  @apply w-full flex py-4 px-12 border-b-[0.01rem] border-b-gray-300;
+
+  img {
+    @apply w-32;
+  }
+}
+
+.auth-container__form-container {
+  @apply w-full h-full flex justify-center items-center p-8;
+}
+
+.auth-containter__form {
+  @apply min-w-sm w-sm py-8;
+}
