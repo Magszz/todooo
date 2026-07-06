@@ -7,8 +7,12 @@ import { useNavigate } from "react-router";
 import { AuthService } from "@/infra/services/auth.service";
 import { isAxiosError } from "axios";
 import { toast } from "sonner";
+import { LocalStorage } from "@/utils/localstorage.utils";
+import { UserService } from "@/infra/services/user.service";
+import { useUser } from "@/stores/user.store";
 
 export const useLogin = () => {
+  const setUser = useUser((state) => state.setUser);
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const form = useForm<Login>({
@@ -19,8 +23,10 @@ export const useLogin = () => {
     setIsLoading(true);
     try {
       const response = await AuthService.login(data);
+      console.log({ response });
+      LocalStorage.setItem("token", response.accessToken);
 
-      console.log(response);
+      getUserProfile();
     } catch (err) {
       console.log(isAxiosError(err), { err });
       if (isAxiosError(err)) {
@@ -46,6 +52,17 @@ export const useLogin = () => {
         description: JSON.stringify(err),
         position: "top-right",
       });
+      setIsLoading(false);
+    }
+  };
+
+  const getUserProfile = async () => {
+    try {
+      const response = await UserService.getUser();
+      setUser(response.data);
+      console.log({ response });
+    } catch (err) {
+      console.error(err);
     } finally {
       setIsLoading(false);
     }
@@ -58,5 +75,6 @@ export const useLogin = () => {
     form,
     handleLoginSubmit,
     handleNavigate,
+    getUserProfile,
   };
 };

@@ -20,7 +20,13 @@ export const useRegister = () => {
     try {
       const response = await AuthService.register(data);
 
-      console.log(response);
+      toast.success(response.message, {
+        description: "You will be redirected to login page in a bit.",
+      });
+
+      setTimeout(() => {
+        handleNavigate();
+      }, 3000);
     } catch (err) {
       if (isAxiosError(err)) {
         console.log({ err });
@@ -35,12 +41,12 @@ export const useRegister = () => {
 
           return;
         }
+        toast.error("Something went wrong!", {
+          description: err.message,
+          position: "top-right",
+        });
       }
-
-      toast.error("Something went wrong!", {
-        description: JSON.stringify(err),
-        position: "top-right",
-      });
+      console.error(err);
     } finally {
       setIsLoading(false);
     }

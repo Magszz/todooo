@@ -14,8 +14,8 @@ import { UserRequest } from "./types/user.types";
 export class UserController {
   constructor(private readonly userService: UsersService) {}
 
-  // GET /api/v1/user/profile
-  @Get("profile")
+  // GET /api/v1/user/me
+  @Get("me")
   @UseGuards(JwtAuthGuard)
   @HttpCode(HttpStatus.OK)
   getProfile(@Request() req: UserRequest) {

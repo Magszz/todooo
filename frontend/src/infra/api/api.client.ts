@@ -93,7 +93,7 @@ ax.interceptors.request.use((req) => {
   const authToken = LocalStorage.getItem("token");
 
   if (authToken) {
-    req.headers["Authorization"] = `Bearer Token ${authToken}`;
+    req.headers["Authorization"] = `Bearer ${authToken}`;
   }
 
   return req;

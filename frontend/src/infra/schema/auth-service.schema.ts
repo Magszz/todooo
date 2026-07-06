@@ -20,13 +20,13 @@ const BaseRegisterSchema = z.object({
   password: z.string().refine(
     (value) => {
       const passwordRegex =
-        /((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
+        /^(?=.*\d|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).{8,}$/;
 
       return passwordRegex.test(value);
     },
     {
       message:
-        "Password must contain at least one uppercase letter, one lowercase letter, and one number or symbol",
+        "Password must contain at least one uppercase letter, one lowercase letter, and one number or symbol and At least 8 characters long",
     },
   ),
   confirmPassword: z.string(),

@@ -5,3 +5,7 @@ export interface APIClientParams {
   data?: object;
   queryParams?: object;
 }
+
+export interface ErrType {
+  message: string;
+}

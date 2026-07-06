@@ -11,7 +11,8 @@ import { Button } from "@/components/ui/button";
 import { Controller } from "react-hook-form";
 
 const Register = () => {
-  const { form, handleRegisterSubmit, isLoading } = useRegister();
+  const { form, handleRegisterSubmit, isLoading, handleNavigate } =
+    useRegister();
 
   return (
     <div className="register-container">
@@ -140,7 +141,7 @@ const Register = () => {
             Register
           </Button>
           <p>
-            Already have an account? <span>Login</span>
+            Already have an account? <span onClick={handleNavigate}>Login</span>
           </p>
         </div>
       </div>
