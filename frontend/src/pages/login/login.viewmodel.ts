@@ -23,10 +23,12 @@ export const useLogin = () => {
     setIsLoading(true);
     try {
       const response = await AuthService.login(data);
-      console.log({ response });
       LocalStorage.setItem("token", response.accessToken);
 
-      getUserProfile();
+      const userProfile = await UserService.getUser();
+
+      setUser(userProfile.data || null);
+      navigate("/home");
     } catch (err) {
       console.log(isAxiosError(err), { err });
       if (isAxiosError(err)) {
@@ -52,17 +54,6 @@ export const useLogin = () => {
         description: JSON.stringify(err),
         position: "top-right",
       });
-      setIsLoading(false);
-    }
-  };
-
-  const getUserProfile = async () => {
-    try {
-      const response = await UserService.getUser();
-      setUser(response.data);
-      console.log({ response });
-    } catch (err) {
-      console.error(err);
     } finally {
       setIsLoading(false);
     }
@@ -75,6 +66,5 @@ export const useLogin = () => {
     form,
     handleLoginSubmit,
     handleNavigate,
-    getUserProfile,
   };
 };

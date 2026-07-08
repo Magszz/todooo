@@ -18,7 +18,7 @@ export const useUser = create<UserStore>()(
       removeUser: () => set({ user: initialUserState }),
     }),
     {
-      name: "user-info",
+      name: "userInfo",
       storage: createJSONStorage(() => localStorage),
     },
   ),
