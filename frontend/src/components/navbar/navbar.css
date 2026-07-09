@@ -1,0 +1,21 @@
+@reference "@/index.css";
+
+.navbar {
+  @apply w-full h-20 flex justify-between items-center px-6 bg-white;
+}
+
+.navbar__page-title {
+  @apply text-xl font-heading;
+}
+
+.navbar__options {
+  @apply flex justify-around items-center gap-4;
+}
+
+.navbar__user-profile {
+  @apply w-10 h-10 rounded-full overflow-hidden cursor-pointer;
+
+  img {
+    @apply w-full h-full object-cover;
+  }
+}

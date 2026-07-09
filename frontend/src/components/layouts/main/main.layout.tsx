@@ -1,14 +1,21 @@
+import "./main.style.css";
 import { Outlet, Navigate } from "react-router";
-import { useMainLayout } from "./main.layout.viewmodel";
+import { useAuth } from "@/hooks/useAuth";
+import Sidebar from "@/components/sidebar/sidebar";
+import Navbar from "@/components/navbar/navbar";
 
 const MainLayout = () => {
-  const { isAuthenticated } = useMainLayout();
+  const { isAuthenticated } = useAuth();
 
   if (!isAuthenticated) return <Navigate to="/auth/login" />;
 
   return (
-    <div>
-      <Outlet />
+    <div className="main-layout">
+      <Sidebar />
+      <div className="main-layout__content-container">
+        <Navbar />
+        <Outlet />
+      </div>
     </div>
   );
 };

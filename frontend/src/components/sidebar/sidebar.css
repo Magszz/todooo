@@ -1,0 +1,21 @@
+@reference "@/index.css";
+
+.sidebar {
+  @apply w-96 px-4 bg-white flex flex-col justify-between;
+}
+
+.sidebar-logo {
+  @apply w-full mb-8 h-20 flex items-center;
+
+  img {
+    @apply w-34;
+  }
+}
+
+.sidebar__options {
+  @apply px-2;
+}
+
+.sidebar__options-item {
+  @apply w-full flex gap-2 justify-start items-center text-lg h-12 mb-2 hover:text-blue-400;
+}

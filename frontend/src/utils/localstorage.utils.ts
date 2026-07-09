@@ -4,7 +4,7 @@ export class LocalStorage {
     return item ? JSON.parse(item) : null;
   }
 
-  static setItem<T>(key: string, value: T) {
+  static setItem(key: string, value: unknown) {
     localStorage.setItem(key, JSON.stringify(value));
   }
 

@@ -1,0 +1,9 @@
+@reference "@/index.css";
+
+.main-layout {
+  @apply flex w-full h-screen gap-1 font-mono bg-gray-50;
+}
+
+.main-layout__content-container {
+  @apply w-full h-full bg-gray-50;
+}
