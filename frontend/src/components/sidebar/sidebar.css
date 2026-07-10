@@ -17,5 +17,5 @@
 }
 
 .sidebar__options-item {
-  @apply w-full flex gap-2 justify-start items-center text-lg h-12 mb-2 hover:text-blue-400;
+  @apply w-full flex gap-2 justify-start items-center text-sm h-12 mb-2 hover:text-blue-400;
 }

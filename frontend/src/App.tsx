@@ -10,7 +10,8 @@ import AuthLayout from "@/components/layouts/auth/auth.layout";
 import MainLayout from "@/components/layouts/main/main.layout";
 
 // * MAIN PAGES
-const Home = lazy(() => import("@/pages/home/home.page"));
+const Dashboard = lazy(() => import("@/pages/dashboard/dashboard.page"));
+const Todos = lazy(() => import("@/pages/todos/todos.page"));
 
 const App = () => {
   return (
@@ -21,7 +22,8 @@ const App = () => {
       </Route>
 
       <Route element={<MainLayout />}>
-        <Route path="home" element={<Home />} />
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="todos" element={<Todos />} />
       </Route>
     </Routes>
   );

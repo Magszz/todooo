@@ -28,7 +28,7 @@ export const useLogin = () => {
       const userProfile = await UserService.getUser();
 
       setUser(userProfile.data || null);
-      navigate("/home");
+      navigate("/dashboard");
     } catch (err) {
       console.log(isAxiosError(err), { err });
       if (isAxiosError(err)) {

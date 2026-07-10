@@ -2,9 +2,11 @@ import "./sidebar.css";
 import Logo from "@/assets/todooo.webp";
 import { useSidebar } from "./sidebar.viewmodel";
 import Option from "./sidebar.option";
+import Logout from "../logout/logout";
 
 const Sidebar = () => {
-  const { options, options2 } = useSidebar();
+  const { options, options2, isLogout, cancelLogout, confirmLogout } =
+    useSidebar();
 
   return (
     <div className="sidebar">
@@ -27,6 +29,12 @@ const Sidebar = () => {
           ))}
         </div>
       </div>
+
+      <Logout
+        open={isLogout}
+        cancelLogout={cancelLogout}
+        confirmLogout={confirmLogout}
+      />
     </div>
   );
 };

@@ -5,7 +5,7 @@
 }
 
 .navbar__page-title {
-  @apply text-xl font-heading;
+  @apply text-xl font-heading capitalize;
 }
 
 .navbar__options {

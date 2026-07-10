@@ -7,7 +7,7 @@ import { Navigate } from "react-router";
 const AuthLayout = () => {
   const { isAuthenticated } = useAuth();
 
-  if (isAuthenticated) return <Navigate to="/home" />;
+  if (isAuthenticated) return <Navigate to="/dashboard" />;
 
   return (
     <div className="auth-container">
