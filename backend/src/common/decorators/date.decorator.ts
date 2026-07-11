@@ -10,12 +10,6 @@ import customParseFormat from "dayjs/plugin/customParseFormat";
 import { DATE_FORMAT } from "../../constants/date.constant";
 
 dayjs.extend(customParseFormat);
-
-console.log(
-  "dayjs test:",
-  dayjs("01-07-2026 09:00:00", "DD-MM-YYYY HH:mm:ss", true).isValid(),
-);
-
 @ValidatorConstraint({ name: "isCustomDate", async: false })
 export class IsCustomDateConstraint implements ValidatorConstraintInterface {
   validate(value: any, args: any) {
