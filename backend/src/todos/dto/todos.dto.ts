@@ -1,5 +1,7 @@
 import { IsString, IsNotEmpty, IsEnum, MinLength } from "class-validator";
 import { TodoStatus } from "../enums/todos.enum";
+import { IsCustomDate } from "../../common/decorators/date.decorator";
+import { ToCustomDate } from "../../common/transformers/date.transformer";
 
 export class TodosDto {
   @IsString()
@@ -14,4 +16,12 @@ export class TodosDto {
     message: `Status value must one of: ${Object.values(TodoStatus).join(", ")}`,
   })
   status: TodoStatus;
+
+  @IsCustomDate("DD-MM-YYYY HH:mm:ss")
+  @ToCustomDate("DD-MM-YYYY HH:mm:ss")
+  startDate: string;
+
+  @IsCustomDate("DD-MM-YYYY HH:mm:ss")
+  @ToCustomDate("DD-MM-YYYY HH:mm:ss")
+  endDate: string;
 }
