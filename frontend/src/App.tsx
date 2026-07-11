@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router";
 import { lazy } from "react";
+import { Navigate } from "react-router";
 
 // * AUTHS + AUTH LAYOUT
 import Login from "@/pages/login/login.page";
@@ -22,6 +23,7 @@ const App = () => {
       </Route>
 
       <Route element={<MainLayout />}>
+        <Route path="/" element={<Navigate to="/dashboard" />} />
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="todos" element={<Todos />} />
       </Route>
