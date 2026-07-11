@@ -19,6 +19,12 @@ export class Todos {
   @Prop({ type: Types.ObjectId, ref: "User", required: true, index: true })
   user: Types.ObjectId;
 
+  @Prop({ type: Date, required: true })
+  startDate: Date;
+
+  @Prop({ type: Date, required: true })
+  endDate: Date;
+
   createdAt?: Date; // populated automatically by the timestamps option above
 }
 
