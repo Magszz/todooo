@@ -11,10 +11,25 @@ import { DATE_FORMAT } from "../../constants/date.constant";
 
 dayjs.extend(customParseFormat);
 
+console.log(
+  "dayjs test:",
+  dayjs("01-07-2026 09:00:00", "DD-MM-YYYY HH:mm:ss", true).isValid(),
+);
+
 @ValidatorConstraint({ name: "isCustomDate", async: false })
 export class IsCustomDateConstraint implements ValidatorConstraintInterface {
   validate(value: any, args: any) {
     const format = args.constraints[0] || DATE_FORMAT;
+    console.log({
+      format,
+      value,
+      validation: dayjs(value, format, true).isValid(),
+    });
+
+    if (value instanceof Date) {
+      return !isNaN(value.getTime());
+    }
+
     return typeof value === "string" && dayjs(value, format, true).isValid();
   }
 

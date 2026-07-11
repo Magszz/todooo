@@ -17,11 +17,11 @@ export class TodosDto {
   })
   status: TodoStatus;
 
-  @IsCustomDate("DD-MM-YYYY HH:mm:ss")
-  @ToCustomDate("DD-MM-YYYY HH:mm:ss")
+  @IsCustomDate()
+  @ToCustomDate()
   startDate: string;
 
-  @IsCustomDate("DD-MM-YYYY HH:mm:ss")
-  @ToCustomDate("DD-MM-YYYY HH:mm:ss")
+  @IsCustomDate()
+  @ToCustomDate()
   endDate: string;
 }
