@@ -1,0 +1,5 @@
+@reference "@/index.css";
+
+.dashboard-container {
+  @apply h-full p-6;
+}
