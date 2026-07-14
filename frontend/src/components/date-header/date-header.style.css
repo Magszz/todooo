@@ -1,0 +1,9 @@
+@reference "@/index.css";
+
+.date-header-container__btn {
+  @apply w-52 justify-between text-left text-lg px-1;
+}
+
+.date-header-container__content {
+  @apply w-auto p-0;
+}
