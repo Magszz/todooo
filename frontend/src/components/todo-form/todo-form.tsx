@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { useTodoForm } from "./todo-form.viewmodel";
+import SelectStatus from "../select-status/select-status";
 
 interface TodoFormProps {
   button: ReactNode;
@@ -33,7 +34,7 @@ const TodoForm = ({ button, open, onOpenChange }: TodoFormProps) => {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogTrigger>{button}</DialogTrigger>
       <DialogContent className="sm:max-w-xl">
-        <DialogHeader>
+        <DialogHeader className="mb-8">
           <DialogTitle>Create New Todo</DialogTitle>
           <DialogDescription>
             Fill in all required fields to add a new task.
@@ -52,6 +53,24 @@ const TodoForm = ({ button, open, onOpenChange }: TodoFormProps) => {
                     id="title"
                     aria-invalid={fieldState.invalid}
                     placeholder="Enter todo title"
+                  />
+                  {fieldState.invalid && (
+                    <FieldError errors={[fieldState.error]} />
+                  )}
+                </Field>
+              )}
+            />
+          </FieldGroup>
+          <FieldGroup className="pb-5">
+            <Controller
+              control={form.control}
+              name="status"
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel htmlFor="status">Status</FieldLabel>
+                  <SelectStatus
+                    value={field.value}
+                    onValueChange={field.onChange}
                   />
                   {fieldState.invalid && (
                     <FieldError errors={[fieldState.error]} />
