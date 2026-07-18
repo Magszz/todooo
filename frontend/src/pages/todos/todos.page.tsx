@@ -12,7 +12,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import DateHeader from "@/components/date-header/date-header";
-import NotFound from "@/components/not-found/not-found";
+import TodoForm from "@/components/todo-form/todo-form";
+// import NotFound from "@/components/not-found/not-found";
 
 import { useTodos } from "./todos.viewmodel";
 
@@ -31,10 +32,13 @@ const Todos = () => {
         {/* LEFT SIDE OPTION */}
         <div className="todos-container__header-r-options">
           <Input placeholder="Search Todo" />
-          <Button>
-            <Plus />
-            Add New Todo
-          </Button>
+          <TodoForm
+            button={
+              <Button>
+                <Plus /> Add New Todo
+              </Button>
+            }
+          />
         </div>
       </div>
 
@@ -44,17 +48,17 @@ const Todos = () => {
           <TabsList className="todos-conatiner__contents-tabs__list">
             <TabsTrigger value="all">All</TabsTrigger>
             <TabsTrigger value="pending">Pending</TabsTrigger>
-            <TabsTrigger value="wip">Work In-progress</TabsTrigger>
+            <TabsTrigger value="wip">Work-In-Progress</TabsTrigger>
             <TabsTrigger value="completed">Completed</TabsTrigger>
             <TabsTrigger value="postponed">Postponed</TabsTrigger>
           </TabsList>
           <TabsContent
-            data-empty={true}
+            data-empty={false}
             className="todos-container__contents-tabs__content"
             value="all"
           >
-            <NotFound />
-            {/* <Card>
+            {/* <NotFound /> */}
+            <Card>
               <CardHeader>
                 <CardTitle>Card Title</CardTitle>
                 <CardDescription>Card Description</CardDescription>
@@ -63,7 +67,7 @@ const Todos = () => {
               <CardFooter>
                 <p>Card Footer</p>
               </CardFooter>
-            </Card> */}
+            </Card>
           </TabsContent>
           <TabsContent value="pending">asd</TabsContent>
           <TabsContent value="wip">asddd</TabsContent>

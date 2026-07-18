@@ -4,6 +4,7 @@ import { TodosDto } from "./dto/todos.dto";
 import { Todos, TodosDocument } from "./schemas/todos.schema";
 import { Model } from "mongoose";
 import { QueryTodo, ParamsTodo, UpdateTodo } from "./types/todos.type";
+import { TodoStatus } from "./enums/todos.enum";
 
 @Injectable()
 export class TodosService {
@@ -94,8 +95,6 @@ export class TodosService {
 
       const isExist = await this.todoModel.findOne({ _id: id });
 
-      console.log({ isExist });
-
       if (!isExist) return new NotFoundException("Todo not found");
 
       const res = await this.todoModel.findOneAndUpdate(
@@ -109,6 +108,30 @@ export class TodosService {
 
       return {
         data: res,
+        message: "ok",
+      };
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  async getTodoStatus() {
+    try {
+      const statusObj = Object.entries(TodoStatus).map(([key, value]) => {
+        if (key === "WIP")
+          return {
+            label: "Work-In-Progress",
+            value: value,
+          };
+
+        return {
+          label: key,
+          value,
+        };
+      });
+
+      return {
+        data: statusObj,
         message: "ok",
       };
     } catch (err) {

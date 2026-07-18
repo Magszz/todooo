@@ -6,8 +6,8 @@ import { ToCustomDate } from "../../common/transformers/date.transformer";
 export class TodosDto {
   @IsString()
   @IsNotEmpty()
-  @MinLength(2, { message: "Todo Name must be at least 2 characters long" })
-  name: string;
+  @MinLength(2, { message: "Todo title must be at least 2 characters long" })
+  title: string;
 
   @IsString()
   description?: string;

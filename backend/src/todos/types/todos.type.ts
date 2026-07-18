@@ -21,7 +21,7 @@ export interface QueryTodo extends Todo {
 }
 
 export interface UpdateTodo {
-  name: string;
+  title: string;
   user: string;
   description?: string;
   status: TodoStatus;
