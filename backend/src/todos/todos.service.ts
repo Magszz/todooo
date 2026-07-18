@@ -125,7 +125,7 @@ export class TodosService {
           };
 
         return {
-          label: key,
+          label: key.charAt(0).toUpperCase() + key.slice(1).toLowerCase(),
           value,
         };
       });
