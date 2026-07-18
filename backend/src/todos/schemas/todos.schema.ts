@@ -7,7 +7,7 @@ export type TodosDocument = HydratedDocument<Todos>;
 @Schema({ timestamps: { createdAt: "createdAt", updatedAt: false } })
 export class Todos {
   @Prop({ required: true })
-  name: string;
+  title: string;
 
   @Prop()
   description?: string;

@@ -1,0 +1,26 @@
+@reference "@/index.css";
+
+.todos-container__header {
+  @apply p-6 flex border-b border-gray-200 items-center justify-between;
+}
+
+.todos-container__header-r-options {
+  @apply flex gap-3 items-center;
+
+  input {
+    @apply w-72;
+  }
+}
+
+.todos-container__contents {
+  @apply p-6;
+}
+
+.todos-conatiner__contents-tabs__list {
+  @apply mb-6;
+}
+
+.todos-container__contents-tabs__content {
+  @apply w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2;
+  @apply data-[empty=true]:flex data-[empty=true]:grid-cols-none data-[empty=true]:justify-center data-[empty=true]:items-center;
+}

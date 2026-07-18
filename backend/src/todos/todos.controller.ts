@@ -79,4 +79,12 @@ export class TodosController {
       ...payload,
     });
   }
+
+  // GET /api/v1/todos/status
+  @Get("status")
+  @UseGuards(JwtAuthGuard)
+  @HttpCode(HttpStatus.OK)
+  getTodoStatus() {
+    return this.todoService.getTodoStatus();
+  }
 }
